@@ -20,7 +20,7 @@ function Home() {
   };
 
   return (
-    <main className="relative flex flex-col h-screen overflow-hidden">
+    <main className="relative flex flex-col min-h-screen overflow-hidden">
       <div className="absolute inset-0 -z-10 " aria-hidden>
         <Image
           src="/bg.png"
@@ -34,7 +34,7 @@ function Home() {
       <div className="flex-1">{renderActiveView()}</div>
 
       {/* Version Switch Buttons */}
-      <div className="w-full flex justify-center gap-6 p-6 bg-transparent">
+      <div className=" flex gap-2 text-white">
         <VersionButton
           label="Version One"
           isActive={activeVersion === 0}

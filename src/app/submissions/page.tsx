@@ -208,7 +208,7 @@ function SubmissionsPage() {
 
   return (
     <div
-      className={`p-8 h-screen overflow-hidden relative flex flex-col justify-center items-center gap-6 ${quickSans.className}`}
+      className={`p-8 min-h-screen overflow-hidden relative flex flex-col justify-center items-center gap-6 ${quickSans.className}`}
     >
       <div className="absolute inset-0 -z-10" aria-hidden>
         <Image
@@ -223,11 +223,11 @@ function SubmissionsPage() {
       <h2 className="text-2xl mb-4 bg-gradient-to-r from-emerald-400 to-cyan-300 bg-clip-text text-transparent">
         Floating Words Zone 🌈
       </h2>
-      <div className="absolute left-16 2xl:left-24 transform  top-1/2  -translate-y-1/2 rotate-180 portal opacity-0 z-40">
+      <div className="absolute left-8 xl:left-16 2xl:left-24 transform  top-1/2  -translate-y-1/2 rotate-180 portal opacity-0 z-40">
         <svg
           width="245"
           height="693"
-          className="2xl:h-[693px] 2xl:w-[245px] h-[550px] "
+          className="2xl:h-[693px] 2xl:w-[245px] xl:h-[550px] h-[400px] "
           viewBox="0 0 245 693"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
@@ -507,7 +507,7 @@ function SubmissionsPage() {
       <Link
         href="/"
         ref={linkRef}
-        className="flex gap-2 text-emerald-100 hover:text-emerald-500 transition-all duration-300"
+        className=" flex gap-2 text-emerald-100 hover:text-emerald-500 transition-all duration-300 z-50"
       >
         <span className="arrow block">←</span>
         <h1>Back to Home</h1>
