@@ -1,36 +1,34 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+📄 ##Overview
 
-## Getting Started
+This project is a web-based interactive animation playground built using Next.js, GSAP, and Tailwind CSS as part of a technical challenge.
 
-First, run the development server:
+The application includes two versions showcasing animated text interactions with randomized floating effects and clean motion design.=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+##Tech Stack
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Next.js (App Router)
+React
+TypeScript
+Tailwind CSS
+GSAP (for advanced animations)
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+##How It Works
 
-## Learn More
+📌 Version One:
+User submits text via a form.
 
-To learn more about Next.js, take a look at the following resources:
+Text animates from input box to a portal animation on the right.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Submissions are stored in localStorage.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Clicking "Go to Submissions" navigates to /submissions, where the texts fly out of the portal with randomized motion.
 
-## Deploy on Vercel
+📌 Version Two:
+User inputs text via a form on the left side of the screen.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+On submission, text animates to the right side.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Text undergoes randomized position, text splitting, and SVG animations.
+
+More visual emphasis on the split text and animated icons on arrival.
