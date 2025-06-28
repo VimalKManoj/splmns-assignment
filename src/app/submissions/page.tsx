@@ -497,7 +497,7 @@ function SubmissionsPage() {
             ref={(el) => {
               submissionRefs.current[i] = el;
             }}
-            className="absolute flex justify-center boxes w-[300px] px-4 py-10  bg-white/5 backdrop-blur-xl border border-[#7bffeb]/20 rounded-xl text-sm "
+            className="absolute flex justify-center boxes w-[200px] xl:w-[300px] px-4 py-10  bg-white/5 backdrop-blur-xl border border-[#7bffeb]/20 rounded-xl text-sm "
           >
             {submission.text}
           </div>

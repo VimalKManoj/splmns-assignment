@@ -34,7 +34,7 @@ function Home() {
       <div className="flex-1">{renderActiveView()}</div>
 
       {/* Version Switch Buttons */}
-      <div className=" flex gap-2 text-white">
+      <div className="fixed bottom-0 w-full justify-center p-10  flex gap-2 text-white">
         <VersionButton
           label="Version One"
           isActive={activeVersion === 0}
