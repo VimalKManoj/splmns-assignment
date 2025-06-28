@@ -12,12 +12,15 @@ gsap.registerPlugin(SplitText, DrawSVGPlugin, MorphSVGPlugin);
 
 const quickSans = Quicksand({ subsets: ["latin"] });
 
+type Submission = {
+  id: string;
+  text: string;
+};
+
 function SubmissionsPage() {
   const containerRef = useRef<HTMLDivElement>(null);
   const linkRef = useRef<HTMLAnchorElement>(null);
-  const [submissions, setSubmissions] = useState<
-    { id: string; text: string }[]
-  >([]);
+  const [submissions, setSubmissions] = useState<Submission[]>([]);
   const submissionRefs = useRef<(HTMLDivElement | null)[]>([]);
 
   const addSplitTextAnimation = (el: HTMLDivElement, index: number) => {
@@ -84,7 +87,7 @@ function SubmissionsPage() {
 
   useEffect(() => {
     const stored = JSON.parse(localStorage.getItem("subs") || "[]");
-    const latestFive = stored.slice(-5).map((item: any, i: number) => ({
+    const latestFive = stored.slice(-5).map((item: Submission, i: number) => ({
       id: `submission-${i}`,
       text: item.text,
     }));
@@ -159,17 +162,17 @@ function SubmissionsPage() {
     if (!containerRef.current || submissions.length === 0) return;
 
     const portal = document.querySelector(".portal") as HTMLElement;
-    const icons = gsap.utils.toArray(".floating-icon");
+    const icons = gsap.utils.toArray<HTMLElement>(".floating-icon");
     if (!portal) return;
 
-    const portalRect = portal.getBoundingClientRect();
+    // const portalRect = portal.getBoundingClientRect();
     const containerRect = containerRef.current.getBoundingClientRect();
 
-    const startX = portalRect.left + portalRect.width / 2 - containerRect.left;
-    const startY = portalRect.top + portalRect.height / 2 - containerRect.top;
+    // const startX = portalRect.left + portalRect.width / 2 - containerRect.left;
+    // const startY = portalRect.top + portalRect.height / 2 - containerRect.top;
 
     const centerY = containerRect.height / 2;
-    icons.forEach((el: any) => {
+    icons.forEach((el) => {
       const icon = el as HTMLElement;
 
       // Set initial at portal position

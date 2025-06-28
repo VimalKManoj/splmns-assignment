@@ -2,7 +2,7 @@
 import React, { useRef, useState } from "react";
 import { gsap } from "gsap";
 import { v4 as uuidv4 } from "uuid";
-import { useRouter } from "next/navigation";
+
 import { useEffect } from "react";
 import { DrawSVGPlugin } from "gsap/DrawSVGPlugin";
 import { Quicksand } from "next/font/google";
@@ -49,9 +49,9 @@ function VersionOne() {
 
     gsap.set(".portal", { scaleY: 0 });
 
-    const icons = gsap.utils.toArray(".floating-icon");
+    const icons = gsap.utils.toArray<HTMLElement>(".floating-icon");
 
-    icons.forEach((el: any) => {
+    icons.forEach((el: HTMLElement) => {
       const parentWidth = portalRef.current?.offsetWidth || window.innerWidth;
       const parentHeight =
         portalRef.current?.offsetHeight || window.innerHeight;
@@ -63,6 +63,7 @@ function VersionOne() {
         rotation: gsap.utils.random(-180, 180),
       });
       gsap.to(el, { opacity: 1, duration: 0.5, ease: "power1.inOut" });
+
       // Animate random motion
       gsap.to(el, {
         x: `+=${gsap.utils.random(-200, 200)}`,
@@ -87,31 +88,27 @@ function VersionOne() {
   }, [showSubmissionsLink]);
 
   const moveIconsToPortal = () => {
-    const icons = gsap.utils.toArray(".floating-icon");
+    const icons = gsap.utils.toArray<HTMLElement>(".floating-icon");
 
     const parentWidth = portalRef.current?.offsetWidth || window.innerWidth;
     const parentHeight = portalRef.current?.offsetHeight || window.innerHeight;
 
-    icons.forEach((el: any) => {
-      // Kill existing motion
+    icons.forEach((el: HTMLElement) => {
       gsap.killTweensOf(el);
 
-      // Animate to portal (right-center of portalRef)
       gsap.to(el, {
-        x: parentWidth + 100, // 60 = icon size buffer
+        x: parentWidth + 100,
         y: parentHeight / 2 - 30,
         duration: 2,
         opacity: 0,
         ease: "power2.inOut",
         onComplete: () => {
-          // After reaching portal, reset to random position
           gsap.set(el, {
             opacity: 0,
             x: gsap.utils.random(0, parentWidth - 60),
             y: gsap.utils.random(0, parentHeight - 60),
           });
 
-          // Resume random floating
           gsap.to(el, { opacity: 1, duration: 0.5, ease: "power1.inOut" });
 
           gsap.to(el, {
